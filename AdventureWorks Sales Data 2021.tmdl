@@ -1,0 +1,100 @@
+table 'AdventureWorks Sales Data 2021'
+	lineageTag: fc8fde05-a7c2-47e2-a60a-bae190f3e1a3
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6c8b1bb9-edeb-4095-a9e4-abc63c9f91b0
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variation
+			isDefault
+			relationship: 73737dcf-cd61-4f08-9b3f-6f88c7ec0186
+			defaultHierarchy: LocalDateTable_2f54349b-8a07-47bb-ba04-e1639a1c79e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column StockDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 33d7f8f0-149d-42ca-a4a9-55a67c3df2f1
+		summarizeBy: none
+		sourceColumn: StockDate
+
+		variation Variation
+			isDefault
+			relationship: 8aa57fd6-5870-47b3-a808-ba9f159632db
+			defaultHierarchy: LocalDateTable_3eda3d2d-0b2d-467a-9cec-904db7d6bb8d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OrderNumber
+		dataType: string
+		lineageTag: 1521018e-273f-47cd-8c3b-d36ba0990ab4
+		summarizeBy: none
+		sourceColumn: OrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b4e1654f-c283-4461-9528-a88eb437fc62
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b174b72-701f-4e16-bc4e-1d3115ecf1bc
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b1f3b07-8934-46f0-a4e0-1b0cf5c1dddd
+		summarizeBy: count
+		sourceColumn: TerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderLineItem
+		dataType: int64
+		formatString: 0
+		lineageTag: d8ef0cd9-c5ee-4435-b596-2ce2a65018b9
+		summarizeBy: sum
+		sourceColumn: OrderLineItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 250514e6-508a-4541-b598-9b8ad55c5c4a
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'AdventureWorks Sales Data 2021' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\sunita.n\Downloads\AdventureWorks Sales Data 2021.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"OrderDate", type date}, {"StockDate", type date}, {"OrderNumber", type text}, {"ProductKey", Int64.Type}, {"CustomerKey", Int64.Type}, {"TerritoryKey", Int64.Type}, {"OrderLineItem", Int64.Type}, {"OrderQuantity", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

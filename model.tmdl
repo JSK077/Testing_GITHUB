@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 19-11-2025 18:24:56.
+queryGroup 'Query Errors - 19-11-2025 18:24:56'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["AdventureWorks Customer Lookup","Errors in AdventureWorks Customer Lookup","AdventureWorks Sales Data 2021","AdventureWorks Product Lookup","AdventureWorks Product Categories Lookup","AdventureWorks Sales Data 2022"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'AdventureWorks Customer Lookup'
+ref table DateTableTemplate_8a06cf14-b241-4804-ad9f-326f51ad2be1
+ref table LocalDateTable_3e886049-412c-43c7-a6af-8225243bd41b
+ref table 'AdventureWorks Sales Data 2021'
+ref table LocalDateTable_2f54349b-8a07-47bb-ba04-e1639a1c79e1
+ref table LocalDateTable_3eda3d2d-0b2d-467a-9cec-904db7d6bb8d
+ref table 'AdventureWorks Product Lookup'
+ref table 'AdventureWorks Product Categories Lookup'
+ref table 'AdventureWorks Sales Data 2022'
+ref table LocalDateTable_39ccbb51-6987-4b83-a3b5-4b0c2b16319f
+ref table LocalDateTable_e98b1a55-e33c-4fb9-82af-d37ef0d260a0
+
+ref cultureInfo en-US
+

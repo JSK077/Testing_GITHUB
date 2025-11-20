@@ -1,0 +1,33 @@
+relationship 5bca475c-14cc-4a12-976f-242e8d677268
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'AdventureWorks Customer Lookup'.BirthDate
+	toColumn: LocalDateTable_3e886049-412c-43c7-a6af-8225243bd41b.Date
+
+relationship 73737dcf-cd61-4f08-9b3f-6f88c7ec0186
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'AdventureWorks Sales Data 2021'.OrderDate
+	toColumn: LocalDateTable_2f54349b-8a07-47bb-ba04-e1639a1c79e1.Date
+
+relationship 8aa57fd6-5870-47b3-a808-ba9f159632db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'AdventureWorks Sales Data 2021'.StockDate
+	toColumn: LocalDateTable_3eda3d2d-0b2d-467a-9cec-904db7d6bb8d.Date
+
+relationship AutoDetected_2bede497-5aa5-4f88-a845-b976d6c52dcd
+	fromColumn: 'AdventureWorks Sales Data 2021'.ProductKey
+	toColumn: 'AdventureWorks Product Lookup'.ProductKey
+
+relationship 6bb470fa-d581-44dd-95b8-7762727e9aef
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'AdventureWorks Sales Data 2022'.OrderDate
+	toColumn: LocalDateTable_39ccbb51-6987-4b83-a3b5-4b0c2b16319f.Date
+
+relationship 35ea719c-cc4e-475d-9e3d-3a097d773f50
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'AdventureWorks Sales Data 2022'.StockDate
+	toColumn: LocalDateTable_e98b1a55-e33c-4fb9-82af-d37ef0d260a0.Date
+
+relationship AutoDetected_12546d49-2787-49db-9931-c8835ff0aa85
+	fromColumn: 'AdventureWorks Sales Data 2022'.ProductKey
+	toColumn: 'AdventureWorks Product Lookup'.ProductKey
+
